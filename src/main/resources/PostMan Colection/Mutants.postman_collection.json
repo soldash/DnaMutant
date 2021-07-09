@@ -1,0 +1,125 @@
+{
+	"info": {
+		"_postman_id": "280dbe4f-6f7c-48b7-8c55-754b1cb17629",
+		"name": "Mutants",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Human Dna",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"dna\":[\"ATCgAgCaGgAaCaGgAaC\",\"CaGgAaTTcTtgTTcTtgT\",\"TTcTtgACAtGCACAtGCA\",\"ACAaGCCtaCcACtaCcAC\",\"CttCcATcgTcgTcgTcgT\",\"TagTcgATGgAgATGgAgA\",\"ATGgAgATTgAgATTgAgA\",\"CaGgAaCaGgAaCaGgAaC\",\"TTcTtgTTcTtgTTcTtgT\",\"ACAtGCACAtGCACAtGCA\",\"CtaCcACtaCcACtaCcAC\",\"TtgTcgTtgTcgTtgTcgT\",\"ATGgAgATGgAgATGgAgA\",\"CaGgAaCaGgAaCaGgAaC\",\"TTcTtgTTcTtgTTcTtgT\",\"ACAaGCACAaGCACAaGCA\",\"CttCcACttCcACttCcAC\",\"TagTcgTagTcgTagTcgT\",\"ATGgAgATGgAgATGgAgA\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.14.242.34:8080/mutant",
+					"protocol": "http",
+					"host": [
+						"3",
+						"14",
+						"242",
+						"34"
+					],
+					"port": "8080",
+					"path": [
+						"mutant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mutant Dna",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"dna\":[\"ATCgAgCaGgAaCaGgAaC\",\"CaGgAaTTcTtgTTcTtgT\",\"TTcTtgACAtGCACAtGCA\",\"ACAaGCCtaCcACtaCcAC\",\"CttCcATcgTcgTcgTcgT\",\"TagTcgATGgAgATGgAgA\",\"ATGgAgATTgAgATTgAgA\",\"CaGgAaCaGgAaCaGgAaC\",\"TTcTtgTTcTtgTTcTtgT\",\"ACAtGCACAtGCACAtGCA\",\"CtaCcACtaCcACtaCcAC\",\"TtgTcgTtgTccTtgTcgT\",\"ATGgAgATGgAgATGgAgA\",\"CaGgAaCaGgAaCaGgAaC\",\"TTcTtgTTcTtgTTcTtgT\",\"ACAaGCACAaGCACAaGCA\",\"CttCcACttCcACttCcAC\",\"TagTcgTagTcgTagTcgT\",\"ATGgAgATGgAgATGgAgA\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/mutant",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"mutant"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mutant Dna Stats",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"dna\":[\"ATGgAg\",\"CtGgAa\",\"TTcTtg\",\"ACAaGC\",\"CtagcA\",\"TagTcg\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://3.14.242.34:8080/stats/",
+					"protocol": "http",
+					"host": [
+						"3",
+						"14",
+						"242",
+						"34"
+					],
+					"port": "8080",
+					"path": [
+						"stats",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
