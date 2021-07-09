@@ -1,5 +1,10 @@
 package com.magneto.dnamutant.model;
 
+/**
+ * 
+ * @author soldash
+ * class to manage and set the coordinates
+ */
 public class Point {
 	public char dnaStructure[][];
 	public int row;

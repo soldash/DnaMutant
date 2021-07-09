@@ -6,11 +6,15 @@ import com.magneto.dnamutant.model.Point;
 import com.magneto.dnamutant.service.HorizontalDetection;
 import com.magneto.dnamutant.service.VerticalDetection;
 
+/**
+ * 
+ * @author soldash
+ *
+ */
 @Service
 public class VerticalDetectionImpl extends DetectorImpl implements VerticalDetection {
 
 	public boolean searchSecuence(char[][] dnaStructure) {
-		// busca la secuencia a traves de las filas
 
 		int datalengh = dnaStructure.length;
 

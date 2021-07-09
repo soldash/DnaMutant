@@ -6,6 +6,11 @@ import com.magneto.dnamutant.model.Point;
 import com.magneto.dnamutant.service.HorizontalDetection;
 import com.magneto.dnamutant.service.SouthEastDetection;
 
+/**
+ * 
+ * @author soldash
+ *
+ */
 @Service
 public class SouthEastDetectionImpl extends DetectorImpl implements SouthEastDetection {
 

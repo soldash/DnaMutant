@@ -8,15 +8,18 @@ import com.magneto.dnamutant.service.HorizontalDetection;
 @Service
 public class HorizontalDetectionImpl extends DetectorImpl implements HorizontalDetection {
 
+	/*
+	 * 
+	 * @see com.magneto.dnamutant.service.HorizontalDetection#searchSecuence(char[][])
+	 */
 	public boolean searchSecuence(char[][] dnaStructure) {
-		// busca la secuencia a traves de las filas
+
 
 		int datalengh = dnaStructure.length;
 
 		Point point = new Point(dnaStructure, 0, 0);
 
 		for (int r = 0; r < datalengh; r++) {
-			// reviso sobre las fila sus columnas para encontrar la secuencia
 			point.setCoordinates(r, 0);
 			boolean isMutant = findSequence(point);
 			if (isMutant) {
@@ -27,7 +30,9 @@ public class HorizontalDetectionImpl extends DetectorImpl implements HorizontalD
 
 		return false;
 	}
-
+	 /**
+	  * check the conditions to continue
+	  */
 	@Override
 	public boolean CanContinue(Point point, int secuenceChars) {
 		if ((point.column + 1 <= point.lastIndex) && (4 <= (secuenceChars + (point.lastIndex - point.column)))) {
@@ -36,7 +41,10 @@ public class HorizontalDetectionImpl extends DetectorImpl implements HorizontalD
 			return false;
 		}
 	}
-
+	
+	/**
+	 * specify the way to move the point
+	 */
 	@Override
 	public void movePoint(Point point) {
 		point.column++;

@@ -17,7 +17,11 @@ import com.magneto.dnamutant.service.DnaMutantService;
 import com.magneto.dnamutant.service.DnaStatsService;
 import com.magneto.dnamutant.util.DnaMutantUtil;
 
-
+/**
+ * 
+ * @author soldash
+ * Rest controller to manage the principal endpoints
+ */
 @RestController
 public class DnaMutantRest extends Exception {
 	
@@ -29,6 +33,13 @@ public class DnaMutantRest extends Exception {
 	@Autowired
 	DnaStatsService dnaStatsService;
 	
+	/**
+	 * 
+	 * @param body: dnaStructure
+	 * @param response: 403: Human, 200 Mutant
+	 * @return
+	 * @throws Exception wrong caracters, no NxN matrix
+	 */
 	@PostMapping("/mutant")
 	@ResponseBody
 	public ResponseEntity<Object> mutant(@RequestBody String body, HttpServletResponse response) throws Exception {
@@ -47,6 +58,10 @@ public class DnaMutantRest extends Exception {
 		}
 	}
 	
+	/**
+	 * 
+	 * @return stadistics about dna secuences
+	 */
 	@GetMapping("/stats")
 	@ResponseBody
 	public ResponseEntity<Object> stats() {

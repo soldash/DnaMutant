@@ -6,18 +6,28 @@ import org.springframework.stereotype.Service;
 
 import com.magneto.dnamutant.model.Point;
 
+/**
+ * 
+ * @author soldash
+ * abstract class to define the detector super method to find secuence
+ */
 @Service
 public abstract class DetectorImpl {
 
 	private static final Logger log = LoggerFactory.getLogger(DetectorImpl.class);
 	
+	/**
+	 * 
+	 * @param point
+	 * @return true if has a secuence of characters
+	 */
 	public boolean findSequence(Point point) {
 
 		char currentCharacter = point.dnaStructure[point.row][point.column];
 
 		int secuenceChars = 1;
 		while (CanContinue(point, secuenceChars)) {
-			movePoint(point); // voy al siguiente punto
+			movePoint(point); 
 			if (point.currentChar == currentCharacter) {
 				secuenceChars++;
 				if (secuenceChars == 4) {

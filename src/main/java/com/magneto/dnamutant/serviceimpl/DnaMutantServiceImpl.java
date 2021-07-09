@@ -12,6 +12,11 @@ import com.magneto.dnamutant.service.NorthEastDetection;
 import com.magneto.dnamutant.service.SouthEastDetection;
 import com.magneto.dnamutant.service.VerticalDetection;
 
+/**
+ * 
+ * @author soldash
+ *
+ */
 @Service
 public class DnaMutantServiceImpl implements DnaMutantService {
 
@@ -26,7 +31,10 @@ public class DnaMutantServiceImpl implements DnaMutantService {
 	
 	@Autowired
 	DnaLogRepository dnaLogRepository;
-
+	
+	/**
+	 * method to review the dna chain in order to find secuence in all directions
+	 */
 	@Override
 	public boolean isMutant(String[] dna) throws Exception {
 
@@ -41,7 +49,13 @@ public class DnaMutantServiceImpl implements DnaMutantService {
 		}
 		return returnOperation(false, dnaLog);
 	}
-
+	
+	/**
+	 * 
+	 * @param returnOperation true:mutant, false:human
+	 * @param dnaLog: set in database the dna chain
+	 * @return
+	 */
 	private boolean returnOperation(boolean returnOperation, DnaLogModel dnaLog) {
 		dnaLog.setMutant(returnOperation);
 		dnaLogRepository.save(dnaLog);
