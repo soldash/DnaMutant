@@ -65,7 +65,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/mutant",
+					"raw": "http://3.14.242.34:8080/mutant",
 					"protocol": "http",
 					"host": [
 						"localhost"
