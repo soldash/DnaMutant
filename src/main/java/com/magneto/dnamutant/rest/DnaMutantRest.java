@@ -33,6 +33,7 @@ public class DnaMutantRest extends Exception {
 	@Autowired
 	DnaStatsService dnaStatsService;
 	
+	
 	/**
 	 * 
 	 * @param body: dnaStructure
@@ -62,7 +63,7 @@ public class DnaMutantRest extends Exception {
 	 * 
 	 * @return stadistics about dna secuences
 	 */
-	@GetMapping("/stats")
+	@GetMapping(path = {"/stats","/"})
 	@ResponseBody
 	public ResponseEntity<Object> stats() {
 		JSONObject body = new JSONObject();
