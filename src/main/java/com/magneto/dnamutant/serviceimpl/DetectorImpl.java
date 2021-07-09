@@ -21,7 +21,7 @@ public abstract class DetectorImpl {
 			if (point.currentChar == currentCharacter) {
 				secuenceChars++;
 				if (secuenceChars == 4) {
-					log.info("Mutant sequences found at:"+ point.column +" , "+ point.row);
+					log.info(String.format("Mutant sequences found at: %s , %s", point.column , point.row));
 					return true;
 				}
 			} else {

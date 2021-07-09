@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,14 +20,15 @@ import com.magneto.dnamutant.util.DnaMutantUtil;
 
 @RestController
 public class DnaMutantRest extends Exception {
-
 	
+	private static final long serialVersionUID = -8491919418492785594L;
+
 	@Autowired
 	DnaMutantService dnaMutantService;
 	
 	@Autowired
 	DnaStatsService dnaStatsService;
-
+	
 	@PostMapping("/mutant")
 	@ResponseBody
 	public ResponseEntity<Object> mutant(@RequestBody String body, HttpServletResponse response) throws Exception {

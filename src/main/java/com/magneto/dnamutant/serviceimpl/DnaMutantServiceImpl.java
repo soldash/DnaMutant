@@ -16,17 +16,14 @@ import com.magneto.dnamutant.service.VerticalDetection;
 public class DnaMutantServiceImpl implements DnaMutantService {
 
 	@Autowired
-	HorizontalDetection horizontal;
-
+	private HorizontalDetection horizontal;
 	@Autowired
-	VerticalDetection vertical;
-
+	private VerticalDetection vertical;
 	@Autowired
-	SouthEastDetection southEast;
-
+	private SouthEastDetection southEast;
 	@Autowired
-	NorthEastDetection northEast;
-
+	private NorthEastDetection northEast;
+	
 	@Autowired
 	DnaLogRepository dnaLogRepository;
 
@@ -35,18 +32,11 @@ public class DnaMutantServiceImpl implements DnaMutantService {
 
 		char[][] dnaStructure = DnaMutantUtil.structureDNAchain(dna);
 
-		int datalengh = dnaStructure.length;
-
 		DnaLogModel dnaLog = new DnaLogModel();
-		dnaLog.setDna(convertToString(dna));
+		dnaLog.setDna(DnaMutantUtil.convertToString(dna));
 
-		if (horizontal.searchSecuence(dnaStructure)) {
-			return returnOperation(true, dnaLog);
-		} else if (vertical.searchSecuence(dnaStructure)) {
-			return returnOperation(true, dnaLog);
-		} else if (southEast.searchSecuence(dnaStructure)) {
-			return returnOperation(true, dnaLog);
-		} else if (northEast.searchSecuence(dnaStructure)) {
+		if (horizontal.searchSecuence(dnaStructure) || vertical.searchSecuence(dnaStructure)
+				|| southEast.searchSecuence(dnaStructure) || northEast.searchSecuence(dnaStructure)) {
 			return returnOperation(true, dnaLog);
 		}
 		return returnOperation(false, dnaLog);
@@ -56,16 +46,6 @@ public class DnaMutantServiceImpl implements DnaMutantService {
 		dnaLog.setMutant(returnOperation);
 		dnaLogRepository.save(dnaLog);
 		return returnOperation;
-	}
-
-	private String convertToString(String[] arrayString) {
-
-		StringBuffer sb = new StringBuffer();
-		for (int i = 0; i < arrayString.length; i++) {
-			sb.append(arrayString[i].toUpperCase());
-			sb.append(" , ");
-		}
-		return sb.toString();
 	}
 
 }

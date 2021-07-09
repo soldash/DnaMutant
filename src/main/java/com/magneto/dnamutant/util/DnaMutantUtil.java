@@ -50,4 +50,14 @@ public class DnaMutantUtil {
 		}
 		return arr;
 	}
+	
+	public static String convertToString(String[] arrayString) {
+
+		StringBuffer sb = new StringBuffer();
+		for (int i = 0; i < arrayString.length; i++) {
+			sb.append(arrayString[i].toUpperCase());
+			sb.append(" , ");
+		}
+		return sb.toString();
+	}
 }

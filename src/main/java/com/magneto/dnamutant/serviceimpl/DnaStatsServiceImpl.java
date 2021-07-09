@@ -16,9 +16,9 @@ import com.magneto.dnamutant.service.DnaStatsService;
  *
  */
 @Service
-public class dnaStatsServiceImpl implements DnaStatsService {
+public class DnaStatsServiceImpl implements DnaStatsService {
 
-	/* (non-Javadoc)
+	/* 
 	 * @see com.magneto.dnamutant.service.DnaStatsService#getCountMutantDna()
 	 */
 	private Long countMutantDna;
@@ -29,30 +29,32 @@ public class dnaStatsServiceImpl implements DnaStatsService {
 	
 	@Override
 	public Long getCountMutantDna() {
-		return countMutantDna = getCountByType(true);
+		countMutantDna = getCountByType(true);
+		return countMutantDna;
 	}
 
-	/* (non-Javadoc)
+	/* 
 	 * @see com.magneto.dnamutant.service.DnaStatsService#getCountHumanDna()
 	 */
 	@Override
 	public Long getCountHumanDna() {
-		return countHumanDna = getCountByType(false);
+		countHumanDna = getCountByType(false);
+		return countHumanDna;
 	}
 
-	/* (non-Javadoc)
+	/* 
 	 * @see com.magneto.dnamutant.service.DnaStatsService#getRatioDna()
 	 */
 	@Override
 	public Float getRatioDna() {
-		return new Float(countMutantDna) / new Float(countHumanDna);
+		return Float.valueOf((float) countMutantDna) / ((float) countHumanDna);
 	}
 	
 	private Long getCountByType(boolean isMutant) {
 		DnaLogModel dnaLogModelExample =new DnaLogModel();
 		dnaLogModelExample.setMutant(isMutant);
 		Example<DnaLogModel> exampleDnaLogModel = Example.of(dnaLogModelExample);
-		return new Long(dnaLogRepository.count(exampleDnaLogModel));
+		return dnaLogRepository.count(exampleDnaLogModel);
 	}
 
 }
